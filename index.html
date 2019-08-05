@@ -17,6 +17,23 @@
     .select2-search__field {
       display: none;
     }
+
+    .select2-selection--multiple {
+      max-height: 40px;
+      overflow: auto;
+    }
+
+    .label::after {
+      content: '';
+      position: fixed;
+      top: 65%;
+      left: 5px;
+      border-top: 4px solid #444;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      z-index: 999;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -159,9 +176,9 @@
                   </select>
                 </div>
                 <div class="field col-12">
-                  <label>MDA</label>
-                  <select id="select-optgroup" multiple="multiple" style="width:100%">
-                    <optgroup label="Group 1">
+                  <label class="label">Select MDA</label>
+                  <select id="select-optgroup" class="select2" multiple style="width:100%;">
+                    <optgroup label=" Group 1">
                       <option value="1">Option 1</option>
                       <option value="2">Option 2</option>
                       <option value="3">Option 3</option>
@@ -367,12 +384,12 @@
       // collapsed optgroup
       $("#select-optgroup").select2({
         closeOnSelect: false,
-        placeholder: "Select an MDA"
+        placeholder: "Select MDA"
       });
 
       // toggle open and close the options
       $("body").on('click', '.select2-results__group', function () {
-        // $(this).siblings().toggle();
+        $(this).siblings().toggle();
       });
 
     });
