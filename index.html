@@ -21,19 +21,13 @@
     .select2-selection--multiple {
       max-height: 40px;
       overflow: auto;
-    }
-
-    .label::after {
-      content: '';
-      position: fixed;
-      top: 65%;
-      left: 5px;
-      border-top: 4px solid #444;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      z-index: 999;
       cursor: pointer;
     }
+
+    span.select2-selection.select2-selection--multiple {
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -157,7 +151,7 @@
             </div>
             <div class="column">
               <div class="ui form">
-                <div class="field col-12">
+                <div class="field">
                   <label>Select Location</label>
                   <select multiple="" class="ui dropdown">
                     <option value="">Select Country</option>
@@ -166,7 +160,7 @@
                     <option value="ZW">Zimbabwe</option>
                   </select>
                 </div>
-                <div class="field col-12">
+                <div class="field">
                   <label>Select Year</label>
                   <select multiple="" class="ui dropdown">
                     <option value="">Select Country</option>
@@ -175,10 +169,25 @@
                     <option value="ZW">Zimbabwe</option>
                   </select>
                 </div>
-                <div class="field col-12">
+                <!-- <div class="field col-12">
                   <label class="label">Select MDA</label>
                   <select id="select-optgroup" class="select2" multiple style="width:100%;">
                     <optgroup label=" Group 1">
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </optgroup>
+                    <optgroup label="Group 2">
+                      <option value="4">Option 4</option>
+                      <option value="5">Option 5</option>
+                      <option value="6">Option 6</option>
+                    </optgroup>
+                  </select>
+                </div> -->
+                <div id="select-container">
+                  <label class="label">Select MDA</label>
+                  <select id="select-group" multiple="multiple" style="width:100%">
+                    <optgroup label="Group 1">
                       <option value="1">Option 1</option>
                       <option value="2">Option 2</option>
                       <option value="3">Option 3</option>
@@ -382,15 +391,43 @@
       $(".ui.dropdown").dropdown();
 
       // collapsed optgroup
-      $("#select-optgroup").select2({
-        closeOnSelect: false,
-        placeholder: "Select MDA"
-      });
+      // $("#select-optgroup").select2({
+      //   closeOnSelect: false,
+      //   placeholder: "Select MDA"
+      // });
 
       // toggle open and close the options
-      $("body").on('click', '.select2-results__group', function () {
+      // $("body").on('click', '.select2-results__group', function () {
+      //   $(this).siblings().toggle();
+      // });
+
+      // new test
+      $("#select-group").select2();
+
+      let optgroupState = {};
+
+      $("body").on('click', '.select2-container--open .select2-results__group', function () {
         $(this).siblings().toggle();
-      });
+        let id = $(this).closest('.select2-results__options').attr('id');
+        let index = $('.select2-results__group').index(this);
+        optgroupState[id][index] = !optgroupState[id][index];
+      })
+
+      $('#select-group').on('select2:open', function () {
+        $('.select2-dropdown--below').css('opacity', 0);
+        setTimeout(() => {
+          let groups = $('.select2-container--open .select2-results__group');
+          let id = $('.select2-results__options').attr('id');
+          if (!optgroupState[id]) {
+            optgroupState[id] = {};
+          }
+          $.each(groups, (index, v) => {
+            optgroupState[id][index] = optgroupState[id][index] || false;
+            optgroupState[id][index] ? $(v).siblings().show() : $(v).siblings().hide();
+          })
+          $('.select2-dropdown--below').css('opacity', 1);
+        }, 0);
+      })
 
     });
 
