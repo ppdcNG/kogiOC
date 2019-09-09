@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Projects - Imo OC</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="../src/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="../src/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../src/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.1/tiny-slider.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <style>
+        a.active.nav-link {
+            background-color: #fff !important;
+            color: #17a2b8 !important;
+            border: 0.5px solid #aaaaaa;
+        }
+
+        a {
+            color: #000;
+        }
+    </style>
+
+    <!-- scripts -->
+    <script src="../src/jquery.js"></script>
+    <script src="../src/jquery.lazy.min.js"></script>
+    <script src="../src/semantic.min.js"></script>
+    <script src="../src/bootstrap.min.js"></script>
+    <script src="../src/components/dropdown.js"></script>
+    <script>
+        $(document)
+            .ready(function () {
+
+                // fix menu when passed
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function () {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function () {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    })
+                    ;
+
+                // create sidebar and attach to menu open
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item')
+                    ;
+                $('.ui.dropdown')
+                    .dropdown()
+                    ;
+
+
+
+            });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <a class=" item" href="../index.html">Home</a>
+            <a class="active item">Projects</a>
+            <a class="item">Monitored Projects</a>
+            <a class="item" href="./table.html">Table</a>
+            <a class="item" href="./visualization.html">Visualization</a>
+            <div class="right menu">
+                <div class="item">
+                    <a class="ui button">Log in</a>
+                </div>
+                <div class="item">
+                    <a class="ui primary button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <a class=" item" href="../index.html">Home</a>
+        <a class="active item">Projects</a>
+        <a class="item">Monitored Projects</a>
+        <a class="item" href="./table.html">Table</a>
+        <a class="item" href="./visualization.html">Visualization</a>
+        <a class="item">Login</a>
+    </div>
+
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical center aligned segment">
+
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a class="item" href="../index.html">Home</a>
+                    <a class="active item">Projects</a>
+                    <a class="item">Monitored Projects</a>
+                    <a class="item" href="./table.html">Table</a>
+                    <a class="item" href="./visualization.html">Visualization</a>
+                    <div class="right item">
+                        <a class="ui inverted button">Log in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui container pt-4">
+
+            <h2>Supply of item xyz</h2>
+            <hr />
+
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active pl-4 pr-4" id="pills-home-tab" data-toggle="pill" href="#pills-tender"
+                        role="tab" aria-controls="pills-home" aria-selected="true">Tender</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pl-4 pr-4" id="pills-profile-tab" data-toggle="pill" href="#pills-award"
+                        role="tab" aria-controls="pills-profile" aria-selected="false">Award</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pl-4 pr-4" id="pills-contact-tab" data-toggle="pill" href="#pills-contract"
+                        role="tab" aria-controls="pills-contact" aria-selected="false">Contract</a>
+                </li>
+            </ul>
+            <hr />
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-tender" role="tabpanel"
+                    aria-labelledby="pills-tender-tab">
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="card mt-3">
+                                <div class="card-header bg-light font-weight-bold">Status</div>
+                                <p class="card-body">Completed<p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mt-3">
+                                <div class="card-header bg-light font-weight-bold">Procurement Method</div>
+                                <p class="card-body">Selective Tendering<p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mt-3">
+                                <div class="card-header bg-light font-weight-bold">Procurement Category</div>
+                                <p class="card-body">Goods<p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="pills-award" role="tabpanel" aria-labelledby="pills-award-tab">
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="card mt-3">
+                                <div class="card-header bg-light font-weight-bold">Status</div>
+                                <p class="card-body">Active<p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mt-3">
+                                <div class="card-header bg-light font-weight-bold">Date</div>
+                                <p class="card-body">01 January 2000<p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mt-3">
+                                <div class="card-header bg-light font-weight-bold">Amount</div>
+                                <p class="card-body">100,000.00<p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header bg-light font-weight-bold">Supplier(s) / Contractors(s)</div>
+                                <p class="card-body">ABC Investment Limited<p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="pills-contract" role="tabpanel" aria-labelledby="pills-contract-tab">
+                        <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="card mt-3">
+                                        <div class="card-header bg-light font-weight-bold">Status</div>
+                                        <p class="card-body">Completed<p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mt-3">
+                                        <div class="card-header bg-light font-weight-bold">Amount</div>
+                                        <p class="card-body">100,000.00<p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mt-3">
+                                        <div class="card-header bg-light font-weight-bold">Currency</div>
+                                        <p class="card-body">NGN<p>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+            </div>
+
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-light font-weight-bold">Documents</div>
+                        <p class="card-body">
+                            <span class="text-danger">
+                                <i class="fas fa-file-pdf fa-2x mr-3"></i>
+                            </span>
+                            <span>
+                                <i class="fas fa-download"></i>
+                                No Document(s) Available.
+                            </span>
+                            <p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr />
+
+        <div class="ui container mb-5">
+            <h3>Contact</h3>
+            <form>
+                <fieldset class="border p-2 border-secondary rounded p-5">
+                    <legend class="w-auto"></legend>
+
+                    <div class="form-group">
+                        <label for="email" class="font-weight-bold">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="msg" class="font-weight-bold">Message</label>
+                        <textarea class="form-control" id="msg" rows="3"></textarea>
+                    </div>
+                </fieldset>
+                <div class="text-center">
+                    <button class="btn btn-secondary col-md-6 mt-3">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="ui inverted vertical footer segment">
+
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="five wide column">
+                        <h4 class="ui inverted header">About</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">Sitemap</a>
+                            <a href="#" class="item">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="five wide column">
+                        <h4 class="ui inverted header">Services</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">FAQs</a>
+                            <a href="#" class="item">How it Works</a>
+                        </div>
+                    </div>
+                    <div class="five wide column">
+                        <h4 class="ui inverted header">Social</h4>
+                        <a href="#" class="item">Twitter</a>
+                        <a href="#" class="item">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
